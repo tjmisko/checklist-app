@@ -5,9 +5,14 @@ function App() {
   
   const [currentListState, setTodos] = useState([])
   const newToDoName = useRef()
-  console.log(newToDoName)
 
-  function handleAddTodo(newToDoName) {
+  function handleAddTodo(e) {
+    const newItem = newToDoName.current.value
+    if (newItem === "") return
+    setTodos(prevList => {
+      return [...prevList, {id: 1, name: newItem, checked: false}]
+    })
+    newToDoName.current.value = null
   }
 
 
