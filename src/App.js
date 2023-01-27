@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import TodoList from './TodoList'
 
 function App() {
-  const [currentListState, setTodos] = useState(['Wash dishes', 'Clean bathroom', "Brush teeth"])
+  
+  const [currentListState, setTodos] = useState([])
+  const newToDoName = useRef()
+  console.log(newToDoName)
+
+  function handleAddTodo(newToDoName) {
+  }
+
+
+
   return (
     <>
       <h2> TO DO LIST </h2>
-      kitty
-      kitty
-       <TodoList todos={currentListState} />
-      <input type='text' />
-      <button> add item </button>
+      <TodoList thingstodo={currentListState} />
+      <input ref={newToDoName} type='text' />
+      <button onClick={handleAddTodo}> add item </button>
       <button> clear </button>
     </>
   )
